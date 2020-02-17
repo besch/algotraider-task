@@ -3,13 +3,13 @@ import 'antd/dist/antd.css';
 import './App.css';
 
 import { StoreProvider } from './context';
-import { OrderTable, OrderForm } from './components';
+import { OrderTable, OrderFormWrapper } from './components';
 
 const App = () => {
   return (
     <StoreProvider>
       <OrderTable />
-      <OrderForm />
+      <OrderFormWrapper />
     </StoreProvider>
   );
 }

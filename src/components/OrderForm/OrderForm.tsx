@@ -4,13 +4,13 @@ import { FormComponentProps } from 'antd/lib/form/Form';
 import { Form, InputNumber, Button, Select } from 'antd';
 import { storeContext } from '../../context';
 import { useObserver } from 'mobx-react-lite';
-import { bitfinexPairs } from '../../services';
+import { getBitfinexPairs } from '../../services';
 
 const { Option } = Select;
 
 const hasErrors = (fieldsError: any) => Object.keys(fieldsError).some(field => fieldsError[field]);
 
-const OrderForm: React.FC<FormComponentProps> = (props) => {
+export const OrderForm: React.FC<FormComponentProps> = (props) => {
   const store = React.useContext(storeContext)!;
   const { form } = props;
   const { getFieldDecorator, getFieldsError } = props.form;
@@ -23,8 +23,8 @@ const OrderForm: React.FC<FormComponentProps> = (props) => {
   };
 
   useEffect(() => {
-    bitfinexPairs()
-      .then((data: string[]) => setPairs(data));
+    getBitfinexPairs()
+      .then(data => setPairs(data));
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -98,7 +98,7 @@ const OrderForm: React.FC<FormComponentProps> = (props) => {
               message: 'Please provide limit' 
           }],
         })(
-          <InputNumber />
+          <InputNumber min={0} />
         )}
       </Form.Item>
   );
@@ -111,7 +111,7 @@ const OrderForm: React.FC<FormComponentProps> = (props) => {
               message: 'Please provide limit' 
           }],
         })(
-          <InputNumber />
+          <InputNumber min={0} />
         )}
       </Form.Item>
   );

@@ -1,1 +1,2 @@
-export { OrderFormWrapper as OrderForm } from './OrderForm';
+// export { OrderFormWrapper as OrderForm } from './OrderForm';
+export * from './OrderForm';
