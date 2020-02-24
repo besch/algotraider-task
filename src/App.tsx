@@ -1,16 +1,18 @@
 import React from 'react';
-import 'antd/dist/antd.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 import { StoreProvider } from './context';
-import { OrderTable, OrderFormWrapper } from './components';
+import { OrderTable, OrderForm } from './components';
 
 const App = () => {
   return (
-    <StoreProvider>
-      <OrderTable />
-      <OrderFormWrapper />
-    </StoreProvider>
+    <div className="container">
+      <StoreProvider>
+        <OrderTable />
+        <OrderForm />
+      </StoreProvider>
+    </div>
   );
 }
 

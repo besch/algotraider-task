@@ -2,11 +2,11 @@ import { observable } from "mobx";
 import { toLocalStorage, fromLocalStorage } from '../services';
 
 export interface IOrder {
-  key: number;
+  key?: number;
   pair: string;
   side: string;
   orderType: string;
-  limit: number;
+  limit?: number;
   quantity: number;
 }
 
